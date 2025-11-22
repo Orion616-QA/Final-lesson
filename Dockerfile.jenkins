@@ -1,5 +1,7 @@
 FROM jenkins/jenkins:lts-jdk17
 
+// налаштування образу дженкінс та встановлення всього для роботи із Докером
+
 USER root
 
 RUN apt-get update && \

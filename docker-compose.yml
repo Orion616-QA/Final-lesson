@@ -1,6 +1,7 @@
 version: '3.8'
 
 services:
+  # База даних
   postgres:
     image: postgres:16
     environment:
@@ -13,6 +14,7 @@ services:
       timeout: 5s
       retries: 5
 
+  # Запуск тестів зі збереженням в алюр
   app:
     build: .
     command: pytest --alluredir=/app/allure-results test_items.py
@@ -22,6 +24,7 @@ services:
       postgres:
         condition: service_healthy
 
+  # Імедж для аллюра
   allure:
     image: frankescobar/allure-docker-service
     environment:
@@ -31,6 +34,7 @@ services:
       - ./allure-results:/app/allure-results
       - ./allure-reports:/app/default-reports
 
+  # Імедж для jenkins
   jenkins:
     build:
       context: .
