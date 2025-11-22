@@ -16,6 +16,7 @@ pipeline {
         stage('Build containers') {
             steps {
                 script {
+                    sh 'mkdir -p allure-results allure-reports && chmod 777 allure-results allure-reports'
                     sh 'docker compose build'
                 }
             }
