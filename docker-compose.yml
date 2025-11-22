@@ -36,7 +36,7 @@ services:
       - ./allure-reports:/app/default-reports
 
   jenkins:
-    image: jenkins/jenkins:lts
+    image: jenkins/jenkins:lts-jdk17-docker
     user: root
     ports:
       - "8080:8080"
