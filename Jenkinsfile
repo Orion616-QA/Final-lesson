@@ -25,9 +25,17 @@ pipeline {
             steps {
                 script {
                     sh '''
+
                 rm -rf allure-results/* allure-report/*
-                mkdir -p allure-results allure-report
-                docker compose up --abort-on-container-exit --exit-code-from app
+
+                docker compose up -d postgres
+                docker compose ps
+                echo "Waiting for postgres to be ready..."
+                until docker compose exec -T postgres pg_isready -U postgres >/dev/null 2>&1; do
+                    sleep 2
+                done
+
+                docker compose run --rm app pytest --alluredir=/app/allure-results -v
             '''
                 }
             }

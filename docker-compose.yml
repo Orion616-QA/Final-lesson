@@ -15,7 +15,6 @@ services:
 
   app:
     build: .
-    command: pytest --alluredir=/app/allure-results test_items.py
     user: root
     volumes:
       - ./allure-results:/app/allure-results
