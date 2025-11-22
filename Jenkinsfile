@@ -24,7 +24,11 @@ pipeline {
         stage('Run tests') {
             steps {
                 script {
-                    sh 'docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app'
+                    sh '''
+                rm -rf allure-results/* allure-report/*
+                mkdir -p allure-results allure-report
+                docker compose up --abort-on-container-exit --exit-code-from app
+            '''
                 }
             }
         }
