@@ -57,5 +57,3 @@ def delete_item_record(id):
 
         session.delete(record)
         session.commit()
-
-#testing changes444

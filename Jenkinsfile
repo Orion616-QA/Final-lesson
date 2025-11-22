@@ -6,13 +6,13 @@ pipeline {
     }
 
     stages {
-
+        // перевірка коду з репозиторію
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-
+        // будуємо контейнери
         stage('Build containers') {
             steps {
                 script {
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-
+        // запускаємо тести в контейнерах
         stage('Run tests in containers') {
             steps {
                 script {
@@ -39,16 +39,18 @@ pipeline {
             sh 'docker compose down -v'
         }
 
+        // відправляємо лист якщо успішно
         success {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' succeeded.\n${env.BUILD_URL}",
                      subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                     to: "ab100190pin@gmail.com"
+                     to: "developer@ithillel.ua"
         }
 
+        // відправляємо лист якщо помилка
         failure {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' failed.\n${env.BUILD_URL}",
                      subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                     to: "ab100190pin@gmail.com"
+                     to: "developer@ithillel.ua"
         }
     }
 }
