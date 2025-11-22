@@ -15,7 +15,6 @@ pipeline {
         stage('Build containers') {
             steps {
                 script {
-                    // создаем папки один раз, не нужно chmod каждый раз
                     sh 'mkdir -p allure-results allure-report || true'
                     sh 'docker compose build'
                 }
@@ -25,8 +24,7 @@ pipeline {
         stage('Run tests') {
             steps {
                 script {
-                    // поднимаем и запускаем контейнеры
-                    sh 'docker compose up --abort-on-container-exit --exit-code-from app'
+                    sh 'docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app'
                 }
             }
         }
@@ -34,10 +32,8 @@ pipeline {
 
     post {
         always {
-            // Генерация отчета через Jenkins Allure Plugin
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
 
-            // Останавливаем и удаляем контейнеры
             sh 'docker compose down -v'
         }
 
