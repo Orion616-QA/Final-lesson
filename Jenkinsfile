@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     // Запуск тестов, завершение по коду контейнера app
-                    sh 'docker compose up --abort-on-container-exit --exit-code-from app'
+                    sh 'docker-compose up --abort-on-container-exit --exit-code-from app'
                 }
             }
         }
@@ -37,19 +37,19 @@ pipeline {
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
 
             // Остановка и очистка окружения
-            sh 'docker compose down -v'
+            sh 'docker-compose down -v'
         }
 
         success {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' succeeded.\n${env.BUILD_URL}",
                      subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                     to: "InsertYour@Mail.Here"
+                     to: "ab100190pin@gmail.com"
         }
 
         failure {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' failed.\n${env.BUILD_URL}",
                      subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                     to: "InsertYour@Mail.Here"
+                     to: "ab100190pin@gmail.com"
         }
     }
 }
