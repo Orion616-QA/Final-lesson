@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["pytest", "test_items.py"]
+CMD ["pytest", "--alluredir=/app/allure-results", "test_items.py"]
