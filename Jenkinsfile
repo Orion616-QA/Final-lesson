@@ -16,7 +16,7 @@ pipeline {
         stage('Build containers') {
             steps {
                 script {
-                    sh 'docker-compose build'
+                    sh 'docker compose build'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 script {
                     // Запуск тестов, завершение по коду контейнера app
-                    sh 'docker-compose up --abort-on-container-exit --exit-code-from app'
+                    sh 'docker compose up --abort-on-container-exit --exit-code-from app'
                 }
             }
         }
@@ -37,7 +37,7 @@ pipeline {
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
 
             // Остановка и очистка окружения
-            sh 'docker-compose down -v'
+            sh 'docker compose down -v'
         }
 
         success {
