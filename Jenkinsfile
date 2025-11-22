@@ -26,6 +26,7 @@ pipeline {
             steps {
                 script {
                     // Запуск тестов, завершение по коду контейнера app
+                    sh 'docker compose down -v --remove-orphans || true'
                     sh 'docker compose up --abort-on-container-exit --exit-code-from app'
                 }
             }
