@@ -24,19 +24,23 @@ pipeline {
         stage('Run tests') {
             steps {
                 script {
+                    sh 'rm -rf allure-results/* allure-report/*'
+
+                    sh 'docker compose up -d postgres'
+                    sh 'echo "Waiting for postgres to be ready..."'
                     sh '''
+                        until docker compose exec -T postgres pg_isready -U postgres >/dev/null 2>&1; do
+                            sleep 2
+                        done
+                    '''
 
-                rm -rf allure-results/* allure-report/*
-
-                docker compose up -d postgres
-                docker compose ps
-                echo "Waiting for postgres to be ready..."
-                until docker compose exec -T postgres pg_isready -U postgres >/dev/null 2>&1; do
-                    sleep 2
-                done
-
-                docker compose run --rm app pytest --alluredir=/app/allure-results -v
-            '''
+                    def containerName = "app_test_${BUILD_NUMBER}"
+                    try {
+                        sh "docker compose run --name ${containerName} app pytest --alluredir=/app/allure-results -v"
+                    } finally {
+                        sh "docker cp ${containerName}:/app/allure-results/. ./allure-results/ || true"
+                        sh "docker rm -f ${containerName} || true"
+                    }
                 }
             }
         }
@@ -52,13 +56,13 @@ pipeline {
         success {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' succeeded.\n${env.BUILD_URL}",
                      subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                     to: "developer@ithillel.ua"
+                     to: "ab100190pin@gmail.com"
         }
 
         failure {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' failed.\n${env.BUILD_URL}",
                      subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                     to: "developer@ithillel.ua"
+                     to: "ab100190pin@gmail.com"
         }
     }
 }
