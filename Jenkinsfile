@@ -25,7 +25,6 @@ pipeline {
         stage('Run tests in containers') {
             steps {
                 script {
-                    // Запуск тестов, завершение по коду контейнера app
                     sh 'docker compose down -v --remove-orphans || true'
                     sh 'docker compose up --abort-on-container-exit --exit-code-from app'
                 }
@@ -35,10 +34,8 @@ pipeline {
 
     post {
         always {
-            // Публикация Allure после тестов
             allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
 
-            // Остановка и очистка окружения
             sh 'docker compose down -v'
         }
 
