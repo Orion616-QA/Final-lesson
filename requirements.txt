@@ -1,3 +1,4 @@
 pytest
 SQLAlchemy
 psycopg2-binary
+allure-pytest
