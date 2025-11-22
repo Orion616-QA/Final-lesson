@@ -58,4 +58,4 @@ def delete_item_record(id):
         session.delete(record)
         session.commit()
 
-# інший тестовий комміт
+#testing changes
