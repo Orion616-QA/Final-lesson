@@ -26,6 +26,7 @@ services:
 
   # Імедж для аллюра
   allure:
+    user: root
     image: frankescobar/allure-docker-service
     environment:
       CHECK_RESULTS_EVERY_SECONDS: 1
