@@ -7,10 +7,9 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: postgres
-#    ports:
-#      - "5433:5432"
+    # Port removed – completely unnecessary in CI
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -29,8 +28,8 @@ services:
     environment:
       CHECK_RESULTS_EVERY_SECONDS: 1
       KEEP_HISTORY: 1
-    ports:
-      - "5050:5050"
+      KEEP_HISTORY_OLDER_THAN_DAYS: 0   # optional: saves disk space
+    # Port removed – Jenkins does NOT need the Allure UI to be reachable on the host!
     volumes:
       - ./allure-results:/app/allure-results
       - ./allure-reports:/app/default-reports
@@ -40,11 +39,14 @@ services:
       context: .
       dockerfile: Dockerfile.jenkins
     user: root
+    # These two ports are only needed if you want to access this temporary Jenkins instance from outside
+    # In a real CI job you can safely remove them too (or keep if you like to watch it)
     ports:
       - "8082:8080"
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+
 volumes:
   jenkins_home:
