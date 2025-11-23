@@ -60,14 +60,14 @@ pipeline {
         success {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' succeeded.\n${env.BUILD_URL}",
                      subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                     to: "ab100190pin@gmail.com"
+                     to: "developer@ithillel.ua"
         }
 
         // відправляє лист, якщо FAILURE
         failure {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' failed.\n${env.BUILD_URL}",
                      subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                     to: "ab100190pin@gmail.com"
+                     to: "developer@ithillel.ua"
         }
     }
 }
