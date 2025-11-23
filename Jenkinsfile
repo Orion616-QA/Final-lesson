@@ -5,6 +5,7 @@ pipeline {
         COMPOSE_FILE = 'docker-compose.yml'
     }
 
+    // перевіряємо репозиторій
     stages {
         stage('Checkout') {
             steps {
@@ -12,6 +13,7 @@ pipeline {
             }
         }
 
+        // будуємо контейнери
         stage('Build containers') {
             steps {
                 script {
@@ -21,6 +23,7 @@ pipeline {
             }
         }
 
+        // запускаємо тести
         stage('Run tests') {
             steps {
                 script {
@@ -53,12 +56,14 @@ pipeline {
             sh 'docker compose down -v'
         }
 
+        // відправляє лист, якщо SUCCESS
         success {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' succeeded.\n${env.BUILD_URL}",
                      subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                      to: "ab100190pin@gmail.com"
         }
 
+        // відправляє лист, якщо FAILURE
         failure {
             emailext body: "Job '${env.JOB_NAME} #${env.BUILD_NUMBER}' failed.\n${env.BUILD_URL}",
                      subject: "FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
