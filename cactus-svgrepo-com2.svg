@@ -1,0 +1,174 @@
+%!PS-Adobe-3.0
+%%Creator: cairo 1.16.0 (https://cairographics.org)
+%%CreationDate: Mon Mar 23 08:51:28 2026
+%%Pages: 1
+%%DocumentData: Clean7Bit
+%%LanguageLevel: 2
+%%DocumentMedia: 212x212mm 600 600 0 () ()
+%%BoundingBox: 105 41 499 561
+%%EndComments
+%%BeginProlog
+/languagelevel where
+{ pop languagelevel } { 1 } ifelse
+2 lt { /Helvetica findfont 12 scalefont setfont 50 500 moveto
+  (This print job requires a PostScript Language Level 2 printer.) show
+  showpage quit } if
+/q { gsave } bind def
+/Q { grestore } bind def
+/cm { 6 array astore concat } bind def
+/w { setlinewidth } bind def
+/J { setlinecap } bind def
+/j { setlinejoin } bind def
+/M { setmiterlimit } bind def
+/d { setdash } bind def
+/m { moveto } bind def
+/l { lineto } bind def
+/c { curveto } bind def
+/h { closepath } bind def
+/re { exch dup neg 3 1 roll 5 3 roll moveto 0 rlineto
+      0 exch rlineto 0 rlineto closepath } bind def
+/S { stroke } bind def
+/f { fill } bind def
+/f* { eofill } bind def
+/n { newpath } bind def
+/W { clip } bind def
+/W* { eoclip } bind def
+/BT { } bind def
+/ET { } bind def
+/BDC { mark 3 1 roll /BDC pdfmark } bind def
+/EMC { mark /EMC pdfmark } bind def
+/cairo_store_point { /cairo_point_y exch def /cairo_point_x exch def } def
+/Tj { show currentpoint cairo_store_point } bind def
+/TJ {
+  {
+    dup
+    type /stringtype eq
+    { show } { -0.001 mul 0 cairo_font_matrix dtransform rmoveto } ifelse
+  } forall
+  currentpoint cairo_store_point
+} bind def
+/cairo_selectfont { cairo_font_matrix aload pop pop pop 0 0 6 array astore
+    cairo_font exch selectfont cairo_point_x cairo_point_y moveto } bind def
+/Tf { pop /cairo_font exch def /cairo_font_matrix where
+      { pop cairo_selectfont } if } bind def
+/Td { matrix translate cairo_font_matrix matrix concatmatrix dup
+      /cairo_font_matrix exch def dup 4 get exch 5 get cairo_store_point
+      /cairo_font where { pop cairo_selectfont } if } bind def
+/Tm { 2 copy 8 2 roll 6 array astore /cairo_font_matrix exch def
+      cairo_store_point /cairo_font where { pop cairo_selectfont } if } bind def
+/g { setgray } bind def
+/rg { setrgbcolor } bind def
+/d1 { setcachedevice } bind def
+/cairo_data_source {
+  CairoDataIndex CairoData length lt
+    { CairoData CairoDataIndex get /CairoDataIndex CairoDataIndex 1 add def }
+    { () } ifelse
+} def
+/cairo_flush_ascii85_file { cairo_ascii85_file status { cairo_ascii85_file flushfile } if } def
+/cairo_image { image cairo_flush_ascii85_file } def
+/cairo_imagemask { imagemask cairo_flush_ascii85_file } def
+/cairo_set_page_size {
+  % Change paper size, but only if different from previous paper size otherwise
+  % duplex fails. PLRM specifies a tolerance of 5 pts when matching paper size
+  % so we use the same when checking if the size changes.
+  /setpagedevice where {
+    pop currentpagedevice
+    /PageSize known {
+      2 copy
+      currentpagedevice /PageSize get aload pop
+      exch 4 1 roll
+      sub abs 5 gt
+      3 1 roll
+      sub abs 5 gt
+      or
+    } {
+      true
+    } ifelse
+    {
+      2 array astore
+      2 dict begin
+        /PageSize exch def
+        /ImagingBBox null def
+      currentdict end
+      setpagedevice
+    } {
+      pop pop
+    } ifelse
+  } {
+    pop
+  } ifelse
+} def
+%%EndProlog
+%%BeginSetup
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+%%PageMedia: 212x212mm
+%%PageBoundingBox: 105 41 499 561
+601 601 cairo_set_page_size
+%%EndPageSetup
+q 105 41 394 520 rectclip
+1 0 0 -1 0 601 cm q
+0.298039 0.584314 0.537255 rg
+301.125 40.262 m 308.156 40.262 l 345.883 40.262 376.465 70.848 376.465
+ 108.574 c 376.465 535.629 l 376.465 548.945 365.668 559.742 352.355 559.742
+ c 256.922 559.742 l 243.605 559.742 232.812 548.945 232.812 535.629 c 232.812
+ 108.574 l 232.812 70.844 263.395 40.262 301.125 40.258 c h
+301.125 40.262 m f
+248.438 440.625 m 216.863 440.625 171.375 435.469 141.043 390.855 c 116.93
+ 355.402 105.699 298.93 105.699 213.137 c 105.578 204.184 109.051 195.562
+ 115.336 189.191 c 121.625 182.82 130.203 179.234 139.152 179.234 c 148.102
+ 179.234 156.68 182.82 162.965 189.191 c 169.25 195.562 172.723 204.184 
+172.605 213.137 c 172.605 282.91 180.598 330.047 196.367 353.234 c 204.969
+ 365.879 216.676 373.742 248.434 373.742 c 257.473 373.473 266.238 376.875
+ 272.727 383.176 c 279.219 389.477 282.879 398.133 282.883 407.18 c 282.883
+ 416.227 279.223 424.883 272.73 431.188 c 266.242 437.488 257.48 440.891
+ 248.438 440.625 c h
+353.809 342.469 m 335.504 342.227 320.793 327.32 320.793 309.016 c 320.793
+ 290.711 335.504 275.805 353.809 275.562 c 383.551 275.562 399.855 270.832
+ 410.059 259.238 c 424.523 242.832 431.855 208.168 431.855 156.234 c 431.734
+ 147.285 435.207 138.66 441.492 132.289 c 447.781 125.922 456.359 122.336
+ 465.309 122.336 c 474.258 122.336 482.836 125.922 489.121 132.289 c 495.406
+ 138.66 498.879 147.285 498.762 156.234 c 498.762 226.875 486.527 273.656
+ 460.254 303.477 c 429.809 338.035 387.375 342.469 353.809 342.469 c h
+353.809 342.469 m f
+1 g
+256.789 102.711 19.664 49.184 re f
+135.949 223.598 m 155.574 222.363 l 158.66 271.449 l 139.035 272.684 l 
+h
+135.949 223.598 m f
+129.312 306.531 m 148.336 301.551 l 160.793 349.133 l 141.77 354.113 l 
+h
+129.312 306.531 m f
+170.152 383.141 m 179.984 366.109 l 222.578 390.703 l 212.746 407.73 l 
+h
+170.152 383.141 m f
+429.586 276.629 m 438.719 294.043 l 395.16 316.883 l 386.027 299.469 l 
+h
+429.586 276.629 m f
+461.973 218.793 m 480.336 225.824 l 462.75 271.758 l 444.387 264.727 l 
+h
+461.973 218.793 m f
+447.621 151.836 m 467.199 153.676 l 462.594 202.645 l 443.016 200.805 l
+ h
+447.621 151.836 m f
+256.789 226.488 19.664 49.184 re f
+256.789 351.387 19.664 49.184 re f
+256.789 475.172 19.664 49.184 re f
+297.492 64.793 19.664 49.184 re f
+297.492 188.578 19.664 49.184 re f
+297.492 313.473 19.664 49.184 re f
+297.492 437.258 19.664 49.184 re f
+333.176 113.859 19.664 49.184 re f
+333.176 237.645 19.664 49.184 re f
+333.176 362.543 19.664 49.184 re f
+333.176 486.324 19.664 49.184 re f
+0.843137 0.478431 0.533333 rg
+107.543 146.883 m 107.543 146.883 117.188 192.188 140.164 192.188 c 163.137
+ 192.188 175.195 154.102 175.195 154.102 c 154.66 167.391 l 137.742 127.547
+ l 129.289 162.582 l h
+107.543 146.883 m f
+Q Q
+showpage
+%%Trailer
+%%EOF
